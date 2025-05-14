@@ -1,58 +1,24 @@
-// import {Link} from 'react-router-dom';
-// const dataobtain=async()=>{
-//     const response=await fetch('http://localhost:8000/users')
-//     const data=response.json()
-//     return data
-// }
-// const data=await dataobtain();
-// console.log(data);
 
-
-
-
-// const Login = () => {
-//     return ( 
-//         <div className="login-container">
-//              <div id="login"> 
-//                  <h2>Login</h2>
-//                  <input type="text" placeholder="Username" />
-//                  <input type="password" placeholder="Password" />
-//                  <button>Login</button>
-//                  <p>Don't have an account? <a href="/signup">Sign Up</a></p>
-
-//              </div>
-
-            
-//         </div>
-//      );
-// }
- 
-// export default Login;
 
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
 
-    const handleLogin = async () => {
-        setError('');
-
+    const handleLogin = () => {
         try {
-            const response = await fetch('/data.json');
-            let users = await response.json();
+            setError('');
 
-            let user = users.find(
-                (u) => u.name === username
-            );
-            if(!user){
-                let usersdata = localStorage.getItem("users")?JSON.parse(localStorage.getItem("users")):[];
-                user = usersdata.find(
-                    (u) => u.name === username
-                );
-            }
+            // Get users from localStorage or default to empty array
+            let usersData = localStorage.getItem("users") ? JSON.parse(localStorage.getItem("users")) : [];
+            
+            // Find user with matching username
+            const user = usersData.find(u => u.name === username);
 
+            // Check user and password
             if (!user) {
                 setError('Username not found');
             } else if (user.password !== password) {
@@ -60,18 +26,15 @@ const Login = () => {
             } else {
                 console.log('Logged in user:', user);
 
+                // Store user data and login status
                 localStorage.setItem('userData', JSON.stringify(user));
-            window.location.href = '/profile';
-            // const prof=document.getElementById("profile");
-            // prof.style.display="block";
-            // const login=document.getElementById("login-but");
-            // login.style.display="none";
-            // const logout=document.getElementById("logout-but");
-            // logout.style.display="block";
-
+                localStorage.setItem('userLoggedIn', 'true');
+                
+                // Redirect to profile page
+                window.location.href = '/profile';
             }
         } catch (err) {
-            console.error('Error fetching users:', err);
+            console.error('Error during login:', err);
             setError('Something went wrong. Please try again later.');
         }
     };
@@ -101,4 +64,3 @@ const Login = () => {
 };
 
 export default Login;
-

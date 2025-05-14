@@ -40,20 +40,62 @@ code {
   padding-right: 3vw;
   
 } 
-.nav-links{
-  display:flex;
-  padding:3vw;
-  a{
-    
-    text-decoration: none;
-  }
-  button{
-    border-radius:5px;
-    margin-right:3vw;
-    background-color:#00FFFF;
-    padding:5px 9px 5px 9px;
-  }
+#navbar{
+    display: flex;
+    align-items: center;
+    /* background-image:url("https://media.istockphoto.com/id/1287456867/photo/clear-night-sky-with-milky-way-and-huge-amount-of-stars.jpg?s=612x612&w=0&k=20&c=mX4PtN6zMBVjzukQfWoBuNSnZS48NXxUmGlfxI5tkoE="); */
+    /* background-size: cover; */
+    background-image:url("https://cdn.pixabay.com/animation/2024/07/23/19/52/19-52-56-478_512.gif");
+    color: white;
+    position:fixed;
+    z-index: 1000;
+    width:98vw;
+    height:15vh;
+
+
 }
+#navbar-links{
+    display: flex;
+    gap: 50px;
+    position:absolute;
+    right:10px;
+    margin-right:30px;
+}   
+#navbar-links a{
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+#navbar-links a {
+    text-decoration: none; /* Remove default underline */
+    position: relative;
+    display: inline-block; /* Needed for transform to work on inline elements */
+    transition: transform 0.6s ease; /* Smooth transition for scaling */
+  }
+  
+ #navbar-links a::after {
+    content: ''; /* Create a pseudo-element */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px; /* Initial thickness of the underline */
+    background-color:aqua; /* Color of the underline */
+    transition: width 0.6s ease, height 0.6s ease; /* Slow transition for both width and height */
+  }
+  
+ a:hover {
+    transform: scale(1.10); /* Increase the size of the anchor by 1.05 times */
+  }
+  
+ #navbar-links a:hover::after {
+    width: 100%; /* Underline width grows on hover */
+    height: 2px * 1.05; /* Increase the height by 1.05 times on hover */
+  }
+  
+  
+
 #home{
   padding-top:0;
   margin-top:0;
@@ -103,8 +145,9 @@ code {
 }
 .schedule-container{
  /* background-color:rgba(0, 0, 0, 0.5); */
- background-image:url("https://www.shutterstock.com/shutterstock/videos/1069521979/thumb/1.jpg?ip=x480");
- background-size: cover;
+ /* background-image:url("https://www.shutterstock.com/shutterstock/videos/1069521979/thumb/1.jpg?ip=x480"); */
+   background-image:url("https://img.freepik.com/free-photo/beautiful-shining-stars-night-sky_181624-622.jpg?semt=ais_hybrid&w=740");
+ 
  height:155vh;
 
 }
@@ -285,15 +328,18 @@ code {
     padding-bottom:5px;
   }
   min-width:17vw;
+  }
 
-}
+
+
 .icons{
-  width:30%;
+  width:100%;
   display:flex;
-  justify-content: space-around;
+  justify-content:center;
   a{
     border-width:2px;
     color:white;
+    margin-right:10px;
   }
 }
 
@@ -335,38 +381,44 @@ code {
   display:flex;
   justify-content: center;
   align-items:top;
-  background-image:url("https://starwalk.space/gallery/images/what-is-space/1920x1080.jpg");
+  background-image:url("https://img.freepik.com/free-photo/beautiful-shining-stars-night-sky_181624-622.jpg?semt=ais_hybrid&w=740");
 }
 .profile-card{
-  border-radius:7px;
-  border-color:rgba(255, 255, 255, 0.5);
-  border-style:solid;
-  border-width:2px;
+  border: 2px solid white;
+  border-radius: 10px;
   color:rgba(59, 237, 204, 0.682);
   margin-top:7vh;
   display:flex;
   flex-direction:column;
   align-items: center ;
   height:80%;
+  h2{
+    margin-bottom:3vh;
+  }
   div{
     font-size:1.2rem;
     width:70vw;
     height:7vh;
     margin:2vh;
     color:white;
-    border:rgba(255,255,255,0.5) solid 2px;
+    
+    /* border:rgba(255,255,255,0.5) solid 2px; */
     border-radius:5px;
+  
     b{
       font-size:1.4rem;
       color:rgba(59, 237, 204, 0.682);
     }
   }
-  background-image:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9rCz7n41iO3Msw0wxmNLE7rvGacjEIt8IPQ&s");
-  background-size: cover;
 }
-/* #profile{
-  display:none;
-} */
+
+
 #logout-but{
-  display:none;
+  color:white;
+  text-decoration: none;
+  border:2px solid white;
+  border-radius:5px;
+  background-color: black;
+  padding: 0 5px;
+  cursor:pointer;
 }
