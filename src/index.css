@@ -15,6 +15,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#home{
+  color:white;
+  min-height:100vh;
+
+  background-image:url("https://img.freepik.com/free-photo/beautiful-shining-stars-night-sky_181624-622.jpg?semt=ais_hybrid&w=740")
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 .Nav{
   display: flex;
   justify-content: space-between;
@@ -95,15 +115,6 @@ code {
   }
   
   
-
-#home{
-  padding-top:0;
-  margin-top:0;
-  
-  /* background-image:url("https://media.istockphoto.com/id/177512311/photo/space-background-stars-universe-galaxy-and-nebula.jpg?s=612x612&w=0&k=20&c=Fo9pcwfjUjr2WcBuNPwvjs2zRnXk0xVSQLkhW4JmXlY=");
-  background-size: cover; */
-  /* color:white; */
-}
 
 #login{
   display:flex;
